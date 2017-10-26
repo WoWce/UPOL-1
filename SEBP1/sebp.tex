@@ -1,0 +1,79 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[czech]{babel}
+\usepackage[T1]{fontenc}
+
+\usetheme{Boadilla}
+\usecolortheme{dolphin}
+
+\title[algorithms]{Vizualizace třídicích algoritmů}
+\author{Mykhailo Klunko}
+\titlegraphic{\includegraphics[scale=3]{Images/UPOL}}
+\institute[UP]{Vedoucí: Mgr. Tomáš Kühr, Ph.D.\\
+				Univerzita Palackého v Olomouci}
+\date{\today}
+
+\usepackage{listings}
+\input{solarized}
+
+\newcommand{\separator}{\vspace{15pt}}
+
+\begin{document}
+
+	\begin{frame}
+		\titlepage
+	\end{frame}
+
+	\begin{frame}{Cíle práce}
+		Požadavky:
+		\begin{itemize}
+			\item Vytvořit software pro podporu výuky třídících algoritmů pomocí vizualizace průběhu třídění
+			\item Podpora nejznámějších algoritmů
+			\item Vizualizace algoritmů na zadaném či vygenerovaném vstupním poli
+			\item Krokování průběhu výpočtu 
+			\item Zobrazení pseudokódu použitého algoritmu a aktuálních hodnot proměnných
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}{Problém}
+	Podpora výuky třídících algoritmů:
+		\begin{enumerate}
+			\item Pochopení algoritmů
+			\item Průběh třídění
+		\end{enumerate}
+	\end{frame}
+
+
+	\begin{frame}{Použité technologie}
+		\begin{itemize}
+			\item Java
+			\item JavaFX
+			\item CSS
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}{Java}
+		\begin{itemize}
+			\item Cross-platform
+			\item Program nevyužívá velky objem paměti
+		\end{itemize}
+		\begin{center}
+			\includegraphics[scale=0.2]{Images/java}
+		\end{center}
+		
+	\end{frame}
+
+	\begin{frame}{Ukázka}
+		\includegraphics[scale=0.35]{Images/Demo}
+	\end{frame}
+
+	\begin{frame}{Závěr}
+		Odkazy:
+		\begin{itemize}
+			\item http://docs.oracle.com/en/java/
+		\end{itemize}
+		\vspace{70pt}
+		\centerline{\textbf{Děkuji za pozornost.}}
+	\end{frame}
+
+\end{document}
