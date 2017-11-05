@@ -1,0 +1,77 @@
+;; Logika
+[true add "OR" :value true]
+[false add "OR" :value {(arg1) arg1}]
+[true add "NOT" :value false]
+[false add "NOT" :value true]
+
+#|
+[[true or true] name]
+[[true or false] name]
+[[false or true] name]
+[[false or false] name]
+[[true not] name]
+[[false not] name]
+|#
+
+;;Is nihil
+[nihil add "IS-NIHIL" :value true]
+[object add "IS-NIHIL" :value false]
+
+#|
+[[nihil is-nihil] name]
+[[true is-nihil] name]
+[[object is-nihil] name]
+[[lobby is-nihil] name]
+|#
+
+;Seznamy
+[lobby add "PAIR" :value [object clone]]
+[pair set-name "PAIR"]
+[pair add "CAR"]
+[pair add "CDR"]
+[pair add "CONS" :value {(arg1 arg2) [self set-car arg1] [self set-cdr arg2]}]
+[lobby add "EMPTY-LIST" :value nihil]
+[empty-list add "LENGTH" :value 0]
+[pair add "LENGTH" :value {() [[[self cdr] is empty-list]
+                               if-true {() [1 esoteric]}
+                               :else {() [[1 esoteric] + [[self cdr] length]]}]}]
+
+#|
+[lobby add "PAR1" :value [pair clone]]
+[par1 name]
+[par1 set-car 1]
+[par1 set-cdr 2]
+[par1 cons 1 :arg2 [[pair clone] cons 2 :arg2 [[pair clone] cons 7 :arg2 empty-list]]]
+|#
+;;Operace na seznamech
+[pair add "APPEND" :value {(arg1) [[[self cdr] is empty-list]
+                               if-true {() [self set-cdr arg1]}
+                               :else {() [[self cdr] append arg1]}]}] 
+
+[pair add "FIND" :value {(arg1) [[[self car] is arg1]
+                                      if-true {() [self car]}
+                                      :else {() [[[self cdr] is empty-list]
+                                                 if-true {() nihil}
+                                                 :else {() [[self cdr] find arg1]}]}]}]
+
+[pair add "BROADCAST" :value  {(arg1-method)
+                               [[[self cdr] is empty-list]
+                                if-true {() [[] arg1-method [self car]]}
+                                :else {() [[] arg1-method [self car]] 
+                                       [[self cdr] broadcast {() arg1-method}]}]}]
+
+#|
+[lobby add "PAR1" :value [pair clone]]
+[lobby add "PAR2" :value [pair clone]]
+[par1 cons 1 :arg2 [[pair clone] cons 2 :arg2 [[pair clone] cons 7 :arg2 empty-list]]] ;length = 3
+[par2 cons 3 :arg2 [[pair clone] cons 4 :arg2 [[pair clone] cons 8 :arg2 empty-list]]]
+[[par1 length] name]
+[par1 append par2]
+[[[[[par1 cdr] cdr] cdr] cdr] car] ; 2
+[par1 find 2]
+|#
+
+#|
+Tests
+
+|#

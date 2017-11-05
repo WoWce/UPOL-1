@@ -1,0 +1,88 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;
+;;;Crossroads
+;;;
+
+(defclass crossroads (picture) ())
+
+(defun top-left-points ()
+  (mapcar (lambda (coords)
+            (apply #'move (make-instance 'point) coords))
+          '((250 20) (250 250) (20 250))))
+
+(defun top-right-points ()
+  (mapcar (lambda (coords)
+            (apply #'move (make-instance 'point) coords))
+          '((350 20) (350 250) (580 250))))
+
+(defun bottom-left-points ()
+  (mapcar (lambda (coords)
+            (apply #'move (make-instance 'point) coords))
+          '((20 350) (250 350) (250 580))))
+
+(defun bottom-right-points ()
+  (mapcar (lambda (coords)
+            (apply #'move (make-instance 'point) coords))
+          '((580 350) (350 350) (350 580))))
+
+(defmethod initialize-instance ((cr crossroads) &rest initargs)
+  (call-next-method)
+  (let ((top-l (make-instance 'polygon))
+        (top-r (make-instance 'polygon))
+        (bot-l (make-instance 'polygon))
+        (bot-r (make-instance 'polygon)))
+    (set-items top-l (top-left-points))
+    (set-items top-r (top-right-points))
+    (set-items bot-l (bottom-left-points))
+    (set-items bot-r (bottom-right-points))
+    (set-closedp top-l nil)
+    (set-closedp top-r nil)
+    (set-closedp bot-l nil)
+    (set-closedp bot-r nil)
+    (set-color top-l :black)
+    (set-color top-r :black)
+    (set-color bot-l :black)
+    (set-color bot-r :black)
+    (set-items cr (list top-l top-r bot-l bot-r)))
+  cr)
+
+#|
+;; Testy. Všechny je vhodné si vyzkoušet. Nejlépe tak, že postupně
+;; umístíte kurzor na každý výraz a vyhodnotíte (ve Windows F8)
+
+(setf cr (make-instance 'crossroads))
+(setf w (make-instance 'window))
+(set-shape w cr)
+(redraw w)
+|#
+
+
+(defclass semaphore (picture) 
+  (semaphore-type))
+
+(defmethod semaphore-type ((s semaphore))
+  (slot-value s 'semaphore-type))
+
+(defmethod set-semaphore-type ((s semaphore) value)
+  (setf (slot-value s 'semaphore-type) value))
+
+(defun make-point (x y)
+  (move (make-instance 'point) x y))
+
+(defun make-base (coord-list filledp closedp color)
+  (set-closedp (set-filledp
+                (set-color
+                 (set-items (make-instance 'polygon)
+                            (mapcar (lambda (pair)
+                                      (apply #'make-point pair))
+                                    coord-list))
+                 color)
+                filledp)
+               closedp))
+
+(defun semaphore-base ()
+  (list (make-base '((20 20) (70 20) (70 130) (20 130)) nil t :black)))
+              
+(defmethod initialize-instance ((s semaphore) &rest args)
+  (call-next-method)
+  (set-items s (semaphe-base)))

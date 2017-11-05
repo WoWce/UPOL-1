@@ -1,0 +1,85 @@
+(defclass mouse-window (window)
+  ((position :initform nil)))
+
+#|
+(defmethod window-mouse-move ((w mouse-window) button position)
+  (let ((shape (find-clicked-shape w position)))
+    (if shape
+        (progn 
+          (mouse-down-inside-shape w shape button position)
+          (print position))
+          ;(send-event w 'show-obj position)
+          ;(print (find-clicked-shape w position)))
+     ; (progn
+        (mouse-down-no-shape w button position)
+        
+        ;(send-event w 'window-click-info)
+)))
+|#
+
+#|
+(defmethod window-mouse-move ((w mouse-window) button position)
+  (let ((shape (find-clicked-shape w position)))
+    (if shape
+        
+        (if (eql (find-clicked-shape w (slot-value w 'position))
+                 nil)
+            (mouse-enter shape button position))
+      (if (eql (find-clicked-shape w (slot-value w 'position))
+                 (find-clicked-shape w position))
+          (mouse-leave shape button position))))
+  (setf (slot-value w 'position) position)
+)
+|#
+
+
+
+(defmethod mouse-down-inside-shape ((w mouse-window) shape button position)
+  (mouse-enter shape button position)
+  w)
+
+(defmethod mouse-down-no-shape ((w mouse-window) button position)
+  w)
+
+#|
+(defmethod window-mouse-move ((w mouse-window) button position)
+  ;(window-mouse-move w button position)
+  (let ((obj (find-clicked-shape w position)))
+    (if obj
+        (find-clicked-shape w position))
+            ))
+|#
+
+(defmethod mouse-enter ((shape shape) button position)
+  ;(send-event shape 'ev-mouse-down shape button position)
+  (print "ok")
+  )
+
+(defmethod mouse-leave ((shape shape) button position)
+  (print "no"))
+
+(defmethod install-mouse-move-callback ((w mouse-window))
+  (mg:set-callback 
+   (mg-window w) 
+   :mouse-move (lambda (mgw button x y)
+		 (declare (ignore mgw))
+		 (window-mouse-move
+                  w
+                  button 
+                  (move (make-instance 'point) x y)))))
+
+(defmethod install-callbacks ((w mouse-window))
+  (call-next-method)
+  (install-mouse-move-callback w)
+  w)
+
+
+#|
+(setf w (make-instance 'mouse-window))
+(setf c (make-instance 'circle))
+(move (set-radius (set-thickness (set-color c :green) 20) 55)
+      148
+      100)
+(set-filledp c t)
+(set-shape w c)
+|#

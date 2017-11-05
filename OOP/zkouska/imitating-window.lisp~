@@ -1,0 +1,38 @@
+(defclass imitating-window (window)
+  ((group :initform nil)))
+
+(defmethod set-group ((w imitating-window) value)
+  (setf (slot-value w 'group) value))
+
+(defmethod group ((w imitating-window))
+  (slot-value w 'group))
+
+(defmethod add-to-group ((w imitating-window) w-group)
+  (if (eql (group w) nil)
+      (progn
+        (set-group w w-group)
+        (set-delegate w-group w))
+    (progn
+      (set-group w (cons (group w) (list w-group)))
+      (set-delegate w-group w))))
+
+(defmethod change ((w imitating-window) message changed-obj args)
+  (call-next-method)
+  (send-event w 'update-window changed-obj))
+
+(defmethod update-window ((w imitating-window) sender changed-obj)
+  (print 'ok))
+
+#|
+(setf w (make-instance 'imitating-window))
+(setf w2 (make-instance 'imitating-window))
+(add-to-group w w2)
+(setf cr (make-instance 'circle))
+(move (set-radius (set-thickness (set-color cr :darkslategrey) 20) 55)
+      148
+      100)
+(set-shape w2 cr)
+|#
+
+      
+  
