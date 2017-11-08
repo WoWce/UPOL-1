@@ -1,0 +1,18 @@
+**********Simple Image Converter**********
+Formats:
+1. 3-3-2 palette image (*.lol)
+2. Adaptive palette image (*.api)
+
+*********/3-3-2 format binaty file (*.lol)/**********
+
+4 bytes - Image Width
+4 bytes - Image Hight
+Width x Height x 4 bytes - Image Data - numbers of colors from palette
+
+*********/Adaptive palette format binary file (*.api)/***********
+
+4 bytes - Image Width
+4 bytes - Image Hight
+4 bytes - Palette Byte Length
+Palette_Length bytes - Adaptive palette
+Width x Height x 4 bytes - Image Data - numbers of colors from palette
