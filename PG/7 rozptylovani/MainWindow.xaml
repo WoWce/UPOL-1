@@ -1,0 +1,20 @@
+﻿<Window x:Class="_7_rozptylovani.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_7_rozptylovani"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="400" Width="600">
+    <Grid>
+        <Image Name="imageOriginal" HorizontalAlignment="Left" Height="245" Margin="50,30,0,0" VerticalAlignment="Top" Width="311"/>
+        <RadioButton Name="ThresholdBtn"  Content="threshold" HorizontalAlignment="Left" Margin="422,90,0,0" VerticalAlignment="Top" Checked="Threshold_Checked" IsEnabled="False"/>
+        <RadioButton Name="RandomBtn" Content="random" HorizontalAlignment="Left" Margin="422,110,0,0" VerticalAlignment="Top" Checked="Random_Checked" IsEnabled="False"/>
+        <RadioButton Name="MatrixBtn" Content="matrix(small images only)" HorizontalAlignment="Left" Margin="422,130,0,0" VerticalAlignment="Top" Checked="Matrix_Checked" IsEnabled="False"/>
+        <Button Content="Open File" Click="Open_Click" HorizontalAlignment="Left" Margin="422,30,0,0" VerticalAlignment="Top" Width="75"/>
+        <RadioButton Content="original" Name="originalButton" HorizontalAlignment="Left" Margin="422,70,0,0" VerticalAlignment="Top" Checked="Original_Checked"/>
+        <ProgressBar Name="LoadingBar" HorizontalAlignment="Left" Height="20" Margin="422,169,0,0" VerticalAlignment="Top" Width="154" Visibility="Hidden"/>
+        <Label Name="LoadingLabel" Content="Loading Images" HorizontalAlignment="Left" Margin="456,165,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+
+    </Grid>
+</Window>
