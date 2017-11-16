@@ -24,7 +24,7 @@ namespace _8_error_dithering
     public partial class MainWindow : Window
     {
         Bitmap bitmap;
-        Bitmap bitmap2;
+        Bitmap grayMap;
         Bitmap bitmap3;
         Bitmap bitmap4;
         public MainWindow()
@@ -38,29 +38,34 @@ namespace _8_error_dithering
             if (openFileDialog.ShowDialog() == true)
             {
                 bitmap = new Bitmap(openFileDialog.FileName);
-                bitmap2 = new Bitmap(openFileDialog.FileName);
-                bitmap3 = new Bitmap(openFileDialog.FileName);
-                /*Dithering dithering = new Dithering();
-                bitmap = dithering.SimpleDithering(bitmap);
-                bitmap2 = dithering.SimpleDithering(bitmap);
-                bitmap3 = dithering.SimpleDithering(bitmap);
-                bitmap4 = dithering.SimpleDithering(bitmap);
-                loadMainImage(dithering.SimpleDithering(bitmap, 1), dithering.SimpleDithering(bitmap2, 2), dithering.SimpleDithering(bitmap3, 3), dithering.SimpleDithering(bitmap4, 4));*/
+                Dithering dithering = new Dithering();
+                grayMap = dithering.SimpleDithering(bitmap);
                 Palette palette = new Palette();
-                loadMainImage(palette.SimpleDithering(bitmap), palette.SimpleDithering(bitmap2, 1), palette.SimpleDithering(bitmap3, 2), palette.SimpleDithering(bitmap, 3));
+                loadMainImage(dithering.SimpleDithering(grayMap, 1), 
+                    dithering.SimpleDithering(grayMap, 2), 
+                    dithering.SimpleDithering(grayMap, 3), 
+                    dithering.SimpleDithering(grayMap, 4),
+                    palette.correctImage(bitmap), 
+                    palette.correctImage(bitmap, 1), 
+                    palette.correctImage(bitmap, 2), 
+                    palette.correctImage(bitmap, 3));
 
 
             }
         }
 
-        private void loadMainImage(Bitmap loadBmp, Bitmap bmp2, Bitmap bmp3, Bitmap bmp4)
+        private void loadMainImage(Bitmap bmp1, Bitmap bmp2, Bitmap bmp3, Bitmap bmp4, Bitmap bmp5, Bitmap bmp6, Bitmap bmp7, Bitmap bmp8)
         {
             try
             {
-                imageOriginal.Source = convertBmpToImage(loadBmp);
+                imageOriginal.Source = convertBmpToImage(bmp1);
                 image2.Source = convertBmpToImage(bmp2);
                 image3.Source = convertBmpToImage(bmp3);
                 image4.Source = convertBmpToImage(bmp4);
+                image5.Source = convertBmpToImage(bmp5);
+                image6.Source = convertBmpToImage(bmp6);
+                image7.Source = convertBmpToImage(bmp7);
+                image8.Source = convertBmpToImage(bmp8);
             }
             catch (Exception exc)
             {

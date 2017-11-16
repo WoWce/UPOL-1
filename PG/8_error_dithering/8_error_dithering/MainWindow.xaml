@@ -5,12 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_8_error_dithering"
         mc:Ignorable="d"
-        Title="Image Dithering" Height="699.079" Width="926.562">
+        Title="Image Dithering" Height="530.948" Width="1149.658">
     <Grid>
-        <Image Name="imageOriginal" HorizontalAlignment="Left" Height="245" Margin="50,30,0,0" VerticalAlignment="Top" Width="311"/>
-        <Button Content="Open File" Click="Open_Click" HorizontalAlignment="Left" Margin="810,30,0,0" VerticalAlignment="Top" Width="75"/>
-        <Image Name="image2" HorizontalAlignment="Left" Height="245" Margin="413,30,0,0" VerticalAlignment="Top" Width="311"/>
-        <Image Name="image3" HorizontalAlignment="Left" Height="245" Margin="50,329,0,0" VerticalAlignment="Top" Width="311"/>
-        <Image Name="image4" HorizontalAlignment="Left" Height="245" Margin="413,329,0,0" VerticalAlignment="Top" Width="311"/>
+        <Image Name="imageOriginal" HorizontalAlignment="Left" Height="185" Margin="50,30,0,0" VerticalAlignment="Top" Width="210"/>
+        <Button Content="Open File" Click="Open_Click" HorizontalAlignment="Left" Margin="999,30,0,0" VerticalAlignment="Top" Width="75"/>
+        <Image Name="image2" HorizontalAlignment="Left" Height="185" Margin="279,30,0,0" VerticalAlignment="Top" Width="210"/>
+        <Image Name="image3" HorizontalAlignment="Left" Height="185" Margin="518,30,0,0" VerticalAlignment="Top" Width="210"/>
+        <Image Name="image4" HorizontalAlignment="Left" Height="185" Margin="743,30,0,0" VerticalAlignment="Top" Width="210"/>
+        <Image Name="image5" HorizontalAlignment="Left" Height="185" Margin="50,253,0,0" VerticalAlignment="Top" Width="210"/>
+        <Image Name="image6" HorizontalAlignment="Left" Height="185" Margin="279,253,0,0" VerticalAlignment="Top" Width="210"/>
+        <Image Name="image7" HorizontalAlignment="Left" Height="185" Margin="518,253,0,0" VerticalAlignment="Top" Width="210"/>
+        <Image Name="image8" HorizontalAlignment="Left" Height="185" Margin="743,253,0,0" VerticalAlignment="Top" Width="210"/>
     </Grid>
 </Window>

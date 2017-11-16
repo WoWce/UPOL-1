@@ -16,9 +16,7 @@ namespace _8_error_dithering
         {
             fillPalette();
         }
-        /*
-         * fill 3-3-2 palette
-         */
+        
         private void fillPalette()
         {
             palette = new int[256, 3];
@@ -28,30 +26,8 @@ namespace _8_error_dithering
             }
 
         }
-        /*
-         * parce 3-3-2 byte array to bitmap
-         */
-        private byte[] parceImageToByteArray(Bitmap bmp)
-        {
 
-            BitmapData data = bmp.LockBits(new System.Drawing.Rectangle(0, 0, bmp.Width, bmp.Height),
-                ImageLockMode.ReadOnly, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
-            List<byte> imageData = new List<byte>();
-            for (int i = 0; i < bmp.Height; i++)
-            {
-                for (int j = 0; j < bmp.Width; j++)
-                {
-                    Color PixelColor = Color.FromArgb(System.Runtime.InteropServices.Marshal.ReadInt32(data.Scan0, (data.Stride * i) + (4 * j)));
-                    int tableIndex = ((PixelColor.R / 32) << 5) | ((PixelColor.G / 32) << 2) | (PixelColor.B / 64);
-                    imageData.AddRange(BitConverter.GetBytes(tableIndex));
-                }
-            }
-            bmp.UnlockBits(data);
-            return imageData.ToArray();
-        }
-
-
-        public unsafe Bitmap SimpleDithering(Bitmap original, int switchAlgorithm = 0)
+        public unsafe Bitmap correctImage(Bitmap original, int switchAlgorithm = 0)
         {
             Bitmap newBitmap = new Bitmap(original.Width, original.Height, PixelFormat.Format24bppRgb);
             Matrix redMatrix = new Matrix(original.Height, original.Width);
@@ -321,17 +297,7 @@ namespace _8_error_dithering
             return newBitmap;
         }
 
-        public byte[] GetImageData(Bitmap bmp)
-        {
-            List<byte> image = new List<byte>();
-            image.AddRange(BitConverter.GetBytes(bmp.Width));
-            image.AddRange(BitConverter.GetBytes(bmp.Height));
-            image.AddRange(parceImageToByteArray(bmp));
-            return image.ToArray();
-        }
-        /*
-         * parce bitmap to 3-3-2 palette byte array
-         */
+       
         
     }
 }
