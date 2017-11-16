@@ -100,7 +100,7 @@ namespace _8_error_dithering
                     errorRed = Math.Abs(redColor - palette[tableIndex, 0]);
                     errorGreen = Math.Abs(greenColor - palette[tableIndex, 1]);
                     errorBlue = Math.Abs(blueColor - palette[tableIndex, 2]);
-                    if(switchAlgorithm == 0)
+                    if (switchAlgorithm == 0)
                     {
                         if ((x + 1) < original.Width)
                         {
@@ -127,7 +127,8 @@ namespace _8_error_dithering
                             }
 
                         }
-                    } else if(switchAlgorithm == 1)
+                    }
+                    else if (switchAlgorithm == 1)
                     {
                         if ((x + 1) < original.Width)
                         {
@@ -147,7 +148,8 @@ namespace _8_error_dithering
                             greenMatrix[y + 1, x] += (int)(errorGreen >> 4);
                             blueMatrix[y + 1, x] += (int)(errorBlue >> 4);
                         }
-                    } else if(switchAlgorithm == 2)
+                    }
+                    else if (switchAlgorithm == 2)
                     {
                         double divider = 48;
                         if ((x + 1) < original.Width)
@@ -227,6 +229,85 @@ namespace _8_error_dithering
                             }
                         }
                     }
+                    else if (switchAlgorithm == 3)
+                    {
+                        int divider = 42;
+                        if ((x + 1) < original.Width)
+                        {
+                            redMatrix[y, x + 1] += (int)(errorRed * 8 / divider);
+                            greenMatrix[y, x + 1] += (int)(errorGreen * 8 / divider);
+                            blueMatrix[y, x + 1] += (int)(errorBlue * 8 / divider);
+                        }
+                        if ((x + 2) < original.Width)
+                        {
+                            redMatrix[y, x + 2] += (int)(errorRed * 4 / divider);
+                            greenMatrix[y, x + 2] += (int)(errorGreen * 4 / divider);
+                            blueMatrix[y, x + 2] += (int)(errorBlue * 4 / divider);
+                        }
+                        if ((y + 1) < original.Height)
+                        {
+                            if ((x - 2) > 0)
+                            {
+                                redMatrix[y + 1, x - 2] += (int)(errorRed / 21);
+                                greenMatrix[y + 1, x - 2] += (int)(errorGreen / 21);
+                                blueMatrix[y + 1, x - 2] += (int)(errorBlue / 21);
+                            }
+                            if ((x - 1) > 0)
+                            {
+                                redMatrix[y + 1, x - 1] += (int)(errorRed * 4 / divider);
+                                greenMatrix[y + 1, x - 1] += (int)(errorGreen * 4 / divider);
+                                blueMatrix[y + 1, x - 1] += (int)(errorBlue * 4 / divider);
+                            }
+                            redMatrix[y + 1, x] += (int)(errorRed * 8 / divider);
+                            greenMatrix[y + 1, x] += (int)(errorGreen * 8 / divider);
+                            blueMatrix[y + 1, x] += (int)(errorBlue * 8 / divider);
+                            if ((x + 1) < original.Width)
+                            {
+                                redMatrix[y + 1, x + 1] += (int)(errorRed * 4 / divider);
+                                greenMatrix[y + 1, x + 1] += (int)(errorGreen * 4 / divider);
+                                blueMatrix[y + 1, x + 1] += (int)(errorBlue * 4 / divider);
+                            }
+                            if ((x + 2) < original.Width)
+                            {
+                                redMatrix[y + 1, x + 2] += (int)(errorRed / 21);
+                                greenMatrix[y + 1, x + 2] += (int)(errorGreen / 21);
+                                blueMatrix[y + 1, x + 2] += (int)(errorBlue / 21);
+                            }
+                        }
+                        if ((y + 2) < original.Height)
+                        {
+                            if ((x - 2) > 0)
+                            {
+                                redMatrix[y + 2, x - 2] += (int)(errorRed / divider);
+                                greenMatrix[y + 2, x - 2] += (int)(errorGreen / divider);
+                                blueMatrix[y + 2, x - 2] += (int)(errorBlue / divider);
+                            }
+                            if ((x - 1) > 0)
+                            {
+                                redMatrix[y + 2, x - 1] += (int)(errorRed / 21);
+                                greenMatrix[y + 2, x - 1] += (int)(errorGreen / 21);
+                                blueMatrix[y + 2, x - 1] += (int)(errorBlue / 21);
+                            }
+
+                            redMatrix[y + 2, x] += (int)(errorRed * 4 / divider);
+                            greenMatrix[y + 2, x] += (int)(errorGreen * 4 / divider);
+                            blueMatrix[y + 2, x] += (int)(errorBlue * 4 / divider);
+
+                            if ((x + 1) < original.Width)
+                            {
+                                redMatrix[y + 2, x + 1] += (int)(errorRed / 21);
+                                greenMatrix[y + 2, x + 1] += (int)(errorGreen / 21);
+                                blueMatrix[y + 2, x + 1] += (int)(errorBlue / 21);
+                            }
+                            if ((x + 2) < original.Width)
+                            {
+                                redMatrix[y + 2, x + 2] += (int)(errorRed / divider);
+                                greenMatrix[y + 2, x + 2] += (int)(errorGreen / divider);
+                                blueMatrix[y + 2, x + 2] += (int)(errorBlue / divider);
+                            }
+                        }
+                    }
+                    
                     
 
                     newByteData[x * pixelSize] = redColor;

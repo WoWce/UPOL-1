@@ -47,20 +47,20 @@ namespace _8_error_dithering
                 bitmap4 = dithering.SimpleDithering(bitmap);
                 loadMainImage(dithering.SimpleDithering(bitmap, 1), dithering.SimpleDithering(bitmap2, 2), dithering.SimpleDithering(bitmap3, 3), dithering.SimpleDithering(bitmap4, 4));*/
                 Palette palette = new Palette();
-                loadMainImage(palette.SimpleDithering(bitmap), palette.SimpleDithering(bitmap2, 1), palette.SimpleDithering(bitmap3, 2));
+                loadMainImage(palette.SimpleDithering(bitmap), palette.SimpleDithering(bitmap2, 1), palette.SimpleDithering(bitmap3, 2), palette.SimpleDithering(bitmap, 3));
 
 
             }
         }
 
-        private void loadMainImage(Bitmap loadBmp, Bitmap bmp2, Bitmap bmp3/*, Bitmap bmp4*/)
+        private void loadMainImage(Bitmap loadBmp, Bitmap bmp2, Bitmap bmp3, Bitmap bmp4)
         {
             try
             {
                 imageOriginal.Source = convertBmpToImage(loadBmp);
                 image2.Source = convertBmpToImage(bmp2);
                 image3.Source = convertBmpToImage(bmp3);
-                /*image4.Source = convertBmpToImage(bmp4);*/
+                image4.Source = convertBmpToImage(bmp4);
             }
             catch (Exception exc)
             {
