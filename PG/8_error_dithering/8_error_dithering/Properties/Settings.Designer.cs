@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace _8_dithering_2.Properties
+namespace _8_error_dithering.Properties
 {
 
 
