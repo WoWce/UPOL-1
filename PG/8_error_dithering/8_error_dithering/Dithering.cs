@@ -251,5 +251,6 @@ namespace _8_error_dithering
             return newBitmap;
 
         }
+
     }
 }
