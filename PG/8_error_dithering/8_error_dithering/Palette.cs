@@ -22,7 +22,9 @@ namespace _8_error_dithering
             palette = new int[256, 3];
             for (int i = 0; i < 256; i++)
             {
-                palette[i, 0] = (i >> 5) * 32;                palette[i, 1] = ((i >> 2) & 7) * 32;                palette[i, 2] = (i & 3) * 64;
+                palette[i, 0] = (i >> 5) * 32;
+                palette[i, 1] = ((i >> 2) & 7) * 32;
+                palette[i, 2] = (i & 3) * 64;
             }
 
         }
