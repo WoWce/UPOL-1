@@ -46,39 +46,33 @@ namespace _8_error_dithering
         /// <summary>
         /// Adds matrices
         /// </summary>
-        /// <param name="m1">Matrix</param>
-        /// <param name="m2">Matrix</param>
-        /// <returns>Matrix</returns>
-        /*public static Matrix operator +(Matrix m1, Matrix m2)
+        public static Matrix operator +(Matrix m1, Matrix m2)
         {
-            Matrix result = new Matrix(m1.GetWidth());
-            for(int i = 0; i < result.GetSize(); i++)
+            Matrix result = new Matrix(m1.GetWidth(), m1.GetHeight());
+            for(int i = 0; i < result.GetHeight(); i++)
             {
-                for (int j = 0; j < result.GetSize(); j++)
+                for (int j = 0; j < result.GetWidth(); j++)
                 {
                     result.set(i, j, m1.Get(i, j) + m2.Get(i, j));
                 }
             }
             return result;
-        }*/
+        }
         /// <summary>
         /// Multiplies matrix by number
         /// </summary>
-        /// <param name="constant">Integer</param>
-        /// <param name="m2">Matrix</param>
-        /// <returns>Matrix</returns>
-        /*public static Matrix operator *(int constant, Matrix m2)
+        public static Matrix operator *(int constant, Matrix m2)
         {
-            Matrix result = new Matrix(m2.GetSize());
-            for (int i = 0; i < result.GetSize(); i++)
+            Matrix result = new Matrix(m2.GetHeight(), m2.GetWidth());
+            for (int i = 0; i < result.GetHeight(); i++)
             {
-                for (int j = 0; j < result.GetSize(); j++)
+                for (int j = 0; j < result.GetWidth(); j++)
                 {
                     result.set(i, j, constant * m2.Get(i, j));
                 }
             }
             return result;
-        }*/
+        }
 
         public int this[int m, int n]
         {
@@ -94,7 +88,6 @@ namespace _8_error_dithering
         /// <summary>
         /// Is used to print matrix in console
         /// </summary>
-        /// <returns></returns>
         public override string ToString()
         {
             string outputMatrix = "";
