@@ -73,17 +73,17 @@ namespace _8_error_dithering
                         | ((greenColor / 32) << 2) 
                         | (blueColor / 64);
 
-                    errorRed = Math.Abs(redColor - palette[tableIndex, 0]);
-                    errorGreen = Math.Abs(greenColor - palette[tableIndex, 1]);
-                    errorBlue = Math.Abs(blueColor - palette[tableIndex, 2]);
+                    errorRed = redColor - palette[tableIndex, 0];
+                    errorGreen = greenColor - palette[tableIndex, 1];
+                    errorBlue = blueColor - palette[tableIndex, 2];
                     if (switchAlgorithm == 0)
-                        floydSteinberg(x, y, redMatrix, errorRed, greenMatrix, errorGreen, blueMatrix, errorBlue);
+                        floydSteinberg(x, y, redMatrix, errorRed, greenMatrix, errorGreen, blueMatrix, errorBlue);  //Floyd-Steinberg
                     else if (switchAlgorithm == 1)
-                        SierraAlgorithm(x, y, redMatrix, errorRed, greenMatrix, errorGreen, blueMatrix, errorBlue);
+                        SierraAlgorithm(x, y, redMatrix, errorRed, greenMatrix, errorGreen, blueMatrix, errorBlue); //F. Sierra
                     else if (switchAlgorithm == 2)
-                        jjnAlgorithm(x, y, redMatrix, errorRed, greenMatrix, errorGreen, blueMatrix, errorBlue);
+                        jjnAlgorithm(x, y, redMatrix, errorRed, greenMatrix, errorGreen, blueMatrix, errorBlue);    //J. Jarvis, C. Judice, W. Ninke
                     else if (switchAlgorithm == 3)
-                        stuckiAlgorithm(x, y, redMatrix, errorRed, greenMatrix, errorGreen, blueMatrix, errorBlue);
+                        stuckiAlgorithm(x, y, redMatrix, errorRed, greenMatrix, errorGreen, blueMatrix, errorBlue); //Stucki
 
                     newByteData[x * pixelSize] = redColor;
                     newByteData[x * pixelSize + 1] = greenColor;

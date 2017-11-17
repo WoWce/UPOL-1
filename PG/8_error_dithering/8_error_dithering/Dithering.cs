@@ -13,7 +13,7 @@ namespace _8_error_dithering
         public unsafe Bitmap SimpleDithering(Bitmap original, int switchAlgorithm = 0)
         {
             int pixelSize = 3;
-            int pivot = 150;
+            int pivot = 128;
             int inOutDifference = 0;
             byte black = 0;
             byte white = 255;
@@ -45,10 +45,7 @@ namespace _8_error_dithering
                         grayColor = (byte)(originalByteData[x * pixelSize] * 0.299 + 
                                            originalByteData[x * pixelSize + 1] * 0.587 +
                                            originalByteData[x * pixelSize + 2] * 0.144);
-
-                        newByteData[x * pixelSize] = grayColor;
-                        newByteData[x * pixelSize + 1] = grayColor;
-                        newByteData[x * pixelSize + 2] = grayColor;
+                        newColor = grayColor;
                     } else
                     {
                         
@@ -59,21 +56,20 @@ namespace _8_error_dithering
                         else
                             newColor = black;
 
-                        inOutDifference = Math.Abs(grayColor - newColor);
+                        inOutDifference = grayColor - newColor;
                         //choose algorithm
                         if (switchAlgorithm == 1)
-                            floydSteinberg(x, y, bitmapMatrix, inOutDifference);
+                            floydSteinberg(x, y, bitmapMatrix, inOutDifference);    //Floyd-Steinberg
                         else if (switchAlgorithm == 2)
-                            SierraAlgorithm(x, y, bitmapMatrix, inOutDifference);
+                            SierraAlgorithm(x, y, bitmapMatrix, inOutDifference);   //F. Sierra
                         else if (switchAlgorithm == 3)
-                            jjnAlgorithm(x, y, bitmapMatrix, inOutDifference);
+                            jjnAlgorithm(x, y, bitmapMatrix, inOutDifference);      //J. Jarvis, C. Judice, W. Ninke
                         else if (switchAlgorithm == 4)
-                            stuckiAlgorithm(x, y, bitmapMatrix, inOutDifference);
-
-                        newByteData[x * pixelSize] = newColor;
-                        newByteData[x * pixelSize + 1] = newColor;
-                        newByteData[x * pixelSize + 2] = newColor;
+                            stuckiAlgorithm(x, y, bitmapMatrix, inOutDifference);   //Stucki
                     }
+                    newByteData[x * pixelSize] = newColor;
+                    newByteData[x * pixelSize + 1] = newColor;
+                    newByteData[x * pixelSize + 2] = newColor;
                 }
             }
             original.UnlockBits(originalData);
