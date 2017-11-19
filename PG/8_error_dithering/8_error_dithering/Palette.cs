@@ -117,7 +117,7 @@ namespace _8_error_dithering
                 redMatrix[y + 1, x] += (int)((5 * errorRed) >> 4);
                 greenMatrix[y + 1, x] += (int)((5 * errorGreen) >> 4);
                 blueMatrix[y + 1, x] += (int)((5 * errorBlue) >> 4);
-                if ((x + 1) < redMatrix.Height)
+                if ((x + 1) < redMatrix.Width)
                 {
                     redMatrix[y + 1, x + 1] += (int)((errorRed * 1) >> 4);
                     greenMatrix[y + 1, x + 1] += (int)((errorGreen * 1) >> 4);
