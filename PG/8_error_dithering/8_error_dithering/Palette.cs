@@ -75,9 +75,9 @@ namespace _8_error_dithering
                         | ((greenColor / 32) << 2) 
                         | (blueColor / 64);
 
-                    errorRed = redColor - palette[tableIndex, 0];
-                    errorGreen = greenColor - palette[tableIndex, 1];
-                    errorBlue = blueColor - palette[tableIndex, 2];
+                    errorRed = Math.Abs(redColor - palette[tableIndex, 0]);
+                    errorGreen = Math.Abs(greenColor - palette[tableIndex, 1]);
+                    errorBlue = Math.Abs(blueColor - palette[tableIndex, 2]);
                     if (switchAlgorithm == 0)
                         floydSteinberg(x, y, redMatrix, errorRed, greenMatrix, errorGreen, blueMatrix, errorBlue);  //Floyd-Steinberg
                     else if (switchAlgorithm == 1)
