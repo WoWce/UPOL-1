@@ -1,1 +1,1 @@
-Computer Graphics(Počitčova Grafika) exercises
+Computer Graphics(Počitačova Grafika) exercises
