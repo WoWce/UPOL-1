@@ -57,7 +57,7 @@ void* findNumber(void* lpParam) {
     }
     sem_wait(&semaphore2);
     primeNum = 0;
-	sem_post(&semaphore);
+    sem_post(&semaphore);
 }
 
 
@@ -68,8 +68,8 @@ int main()
 	{
         int number;
         void* count;
-		prime = false;
-		cout << "Enter max: ";
+        prime = false;
+        cout << "Enter max: ";
         cin >> number;
         if(number <= 1) break;
         if (sem_init(&semaphore, 0, 0) == -1)
@@ -84,10 +84,10 @@ int main()
         pthread_create(&thread1, NULL, findNumber, (void*) &p1);
         pthread_create(&thread2, NULL, printNumber, (void*)&p2);
 
-		pthread_join(thread1, NULL);
+        pthread_join(thread1, NULL);
         pthread_join(thread2, &count);
         
-		cout << endl << "Print count: " << *((int*)&count) << endl;
+        cout << endl << "Print count: " << *((int*)&count) << endl;
 
 	}
 	return 0;
