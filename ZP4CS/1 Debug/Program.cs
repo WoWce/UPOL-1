@@ -10,8 +10,6 @@ namespace _1_Debug
     {
         private static void MergeSort(int[] arr, int l, int r)
         {
-//preprocessor function Debug
-//prints string from settings
 #if DEBUG
             Console.WriteLine(Properties.Settings.Default.DEBUG);
 #endif
