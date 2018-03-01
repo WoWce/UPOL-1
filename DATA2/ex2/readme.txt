@@ -1,0 +1,1 @@
+Ukol: najit vsechny pevne body
