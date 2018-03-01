@@ -1,0 +1,1 @@
+Na prvnim cviceni jsme meli pisemku. Tu nikdo nedal XD
