@@ -23,11 +23,9 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
             
-            List<int> abcdefgh = new List<int> { 1,2,3,4,5};
+            List<int> abcdefgh = new List<int> { 1,2,3,4,5,6,7,8};
 
-            List<int> a = new List<int> { 1 };
             List<int> ab = new List<int>{ 1,2 };
-            List<int> bd = new List<int> { 2, 4 };
             List<int> c = new List<int> { 3 };
             List<int> ac = new List<int> { 1, 3 };
             List<int> fg = new List<int> { 6, 7 };
@@ -36,8 +34,6 @@ namespace ConsoleApp1
             List<int> cg = new List<int> { 3, 7 };
             List<int> gh = new List<int> { 7, 8};
             List<int> d = new List<int> { 4 };
-            List<int> de = new List<int> { 4, 5 };
-            List<int> dec = new List<int> { 4, 5, 3 };
             List<int> g = new List<int> { 7 };
             List<int> ae = new List<int> { 1, 5 };
             List<int> f = new List<int> { 6 };
@@ -52,21 +48,12 @@ namespace ConsoleApp1
             T.Add(new FunctionalDep(g, ae));
             T.Add(new FunctionalDep(f, b));
 
-            List<FunctionalDep> T1 = new List<FunctionalDep>();
-            T1.Add(new FunctionalDep(ab, bd));
-            T1.Add(new FunctionalDep(b, a));
-            T1.Add(new FunctionalDep(de, dec));
-
-
-            List<FunctionalDep> T2 = new List<FunctionalDep>();
-            List<FunctionalDep> T3 = new List<FunctionalDep>();
-            List<FunctionalDep> T4 = new List<FunctionalDep>();
 
             int setsCount = 0;
             //Vygenerujeme vsechny podmnoziny -> udelame uzavery -> vypiseme pevne body
             SubSetsOf<int>(abcdefgh).ToList().ForEach(i 
                 => {
-                    List<FunctionalDep> tmp = new List<FunctionalDep>(T1);
+                    List<FunctionalDep> tmp = new List<FunctionalDep>(T);
                     List<int> iList = new List<int>(i);
                     List<int> result = closure(tmp, iList);
                     result.Sort();
