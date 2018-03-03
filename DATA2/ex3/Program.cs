@@ -41,14 +41,14 @@ namespace ex2
                 {
                     //check if A & B aren't empty
                     //comment this "if" to use empty sets
-                    if(A.Any() && B.Any())
-                    {
+                    //if(A.Any() && B.Any())
+                    //{
                         //checks each dependency in form: if A=>B is valid in relation 
                         if(IsDependencyInRelation(attributes, A.ToList(), B.ToList(), relation))
                         {
                             fDepCount++;
                         }
-                    }
+                    //}
                     
                 });
             });
@@ -58,30 +58,22 @@ namespace ex2
         //checks each dependency in form: if A=>B is valid in relation 
         public static bool IsDependencyInRelation(List<string> attributes, List<string> FDLeft, List<string> FDRight, List<List<string>> relation)
         {
-            bool forall = true;
             for (int k = 0; k < relation.Count; k++)
             {
                 for (int l = k + 1; l < relation.Count; l++)
                 {
-
-                    if(TwoTupleDependency(attributes, FDLeft, FDRight, relation[k], relation[l]))
-                    {
-                        forall = true;
-                    }
-                    else
+                    if(!TwoTupleDependency(attributes, FDLeft, FDRight, relation[k], relation[l]))
                     {
                         return false;
                     }   
                 }
             }
-            return forall;
+            return true;
         }
 
         //checks dependency for two tuples
         public static bool TwoTupleDependency(List<string> attributes, List<string> FDLeft, List<string> FDRight, List<string> tuple1, List<string> tuple2)
         {
-            
-            bool equal = true;
             foreach(string s in FDLeft)
             {
                 
@@ -89,40 +81,27 @@ namespace ex2
                 {
                     if (s.Equals(attributes[i]))
                     {
-                        if (tuple1[i].Equals(tuple2[i]))
-                        {
-                            equal = true;
-                        }
-                        else
+                        if (!tuple1[i].Equals(tuple2[i]))
                         {
                             return true;
                         }
                     }
                 }
             }
-            if (equal)
+            foreach (string s in FDRight)
             {
-                foreach (string s in FDRight)
+                for (int i = 0; i < attributes.Count; i++)
                 {
-                    for (int i = 0; i < attributes.Count; i++)
+                    if (s.Equals(attributes[i]))
                     {
-                        if (s.Equals(attributes[i]))
+                        if (!tuple1[i].Equals(tuple2[i]))
                         {
-                            if (tuple1[i].Equals(tuple2[i]))
-                            {
-                                equal = true;
-                            }
-                            else
-                            {
-                                return false;
-                            }
+                            return false;
                         }
-
                     }
-                    
-                }
+                }   
             }
-            return equal;
+            return true;
         }
 
         //generates subsets
