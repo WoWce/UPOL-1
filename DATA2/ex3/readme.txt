@@ -1,0 +1,1 @@
+Ukol: najit vsechny Funkcni Zavislosti, ktere plati v relaci, vygenerovane z mnoziny atributu
