@@ -6,23 +6,14 @@ using System.Threading.Tasks;
 
 namespace ex2
 {
-    class FunctionalDep
-    {
-        public List<string> set1 { get; set; }
-        public List<string> set2 { get; set; }
-
-        public FunctionalDep(List<string> a, List<string> b)
-        {
-            this.set1 = a;
-            this.set2 = b;
-        }
-    }
-
     class Program
     {
         static void Main(string[] args)
         {
+            //Attributes: generators for functional dependencies
             List<string> setOfAttributes = new List<string>{ "ID", "Jmeno", "Prijmeni", "Narozen", "Vyska" };
+
+            //Relation(table)
             List<string> tuple1 = new List<string> { "1", "Jan", "Spaleny", "1981", "Vysoky" };
             List<string> tuple2 = new List<string> { "2", "Jakub", "Spaleny", "1970", "Vysoky" };
             List<string> tuple3 = new List<string> { "3", "Jakub", "Mazany", "1970", "Vysoky" };
@@ -30,29 +21,41 @@ namespace ex2
             List<string> tuple5 = new List<string> { "5", "Karel", "Karel", "1971", "Maly" };
             List<List<string>> relation = new List<List<string>> { tuple1, tuple2, tuple3, tuple4, tuple5 };
 
-            int setsCount = 0;
-            int generalCount = 0;
-            List<IEnumerable<string>> subattr =  SubSetsOf(setOfAttributes).ToList();
-            bool forall = false;
-            subattr.ForEach(i =>
+            GenerateAndCheckDeps(setOfAttributes, relation);
+
+            //Tests
+            //Console.WriteLine(TwoTupleDependency(setOfAttributes, new List<string> { "Prijmeni", "Jmeno", "Narozen" }, new List<string> { "ID" }, tuple1, tuple4));
+            //Console.WriteLine(IsDependencyInRelation(setOfAttributes, new List<string> { "Jmeno" }, new List<string> { "Prijmeni" }, relation));
+        }
+
+        public static void GenerateAndCheckDeps(List<string> attributes, List<List<string>> relation)
+        {
+            //initialization of count of right functional deps.
+            int fDepCount = 0;
+            //generates all subsets of attributes
+            List<IEnumerable<string>> subattr =  SubSetsOf(attributes).ToList();
+            //generate dependency and chech if it is in relation
+            subattr.ForEach(A =>
             {
-                subattr.ForEach(j =>
+                subattr.ForEach(B =>
                 {
-                    if(i.Any() && j.Any())
+                    //check if A & B aren't empty
+                    //comment this "if" to use empty sets
+                    if(A.Any() && B.Any())
                     {
-                        if(IsDependencyInRelation(setOfAttributes, i.ToList(), j.ToList(), relation))
+                        //checks each dependency in form: if A=>B is valid in relation 
+                        if(IsDependencyInRelation(attributes, A.ToList(), B.ToList(), relation))
                         {
-                            setsCount++;
+                            fDepCount++;
                         }
                     }
                     
                 });
             });
-            Console.WriteLine(setsCount);
-            Console.WriteLine(TwoTupleDependency(setOfAttributes, new List<string> { "Prijmeni", "Jmeno", "Narozen" }, new List<string> { "ID" }, tuple1, tuple4));
-            
+            Console.WriteLine(fDepCount);
         }
 
+        //checks each dependency in form: if A=>B is valid in relation 
         public static bool IsDependencyInRelation(List<string> attributes, List<string> FDLeft, List<string> FDRight, List<List<string>> relation)
         {
             bool forall = true;
@@ -68,13 +71,13 @@ namespace ex2
                     else
                     {
                         return false;
-                    }
-                            
+                    }   
                 }
             }
             return forall;
         }
 
+        //checks dependency for two tuples
         public static bool TwoTupleDependency(List<string> attributes, List<string> FDLeft, List<string> FDRight, List<string> tuple1, List<string> tuple2)
         {
             
@@ -95,7 +98,6 @@ namespace ex2
                             return true;
                         }
                     }
-                    
                 }
             }
             if (equal)
@@ -123,6 +125,7 @@ namespace ex2
             return equal;
         }
 
+        //generates subsets
         public static IEnumerable<IEnumerable<T>> SubSetsOf<T>(IEnumerable<T> source)
         {
             if (!source.Any())
