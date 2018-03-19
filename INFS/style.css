@@ -1,11 +1,29 @@
 body {
-    width: 62%;
-    margin: 0 auto;
     font-family: 'Open Sans', sans-serif;
+    margin: 0 0;
 }
 
 header {
     padding-bottom: 2%;
+}
+
+header, main{
+    width: 62%;
+    margin: 0 auto;
+}
+
+footer{
+    background-color: #222222;
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+p {
+    font-size: 10pt;
+    color: #666666;
 }
 
 h1 div {
@@ -13,14 +31,37 @@ h1 div {
 }
 
 h3 {
-    font-size: 0.9em;
+    /*font-size: 0.9em;*/
+    font-size: 11pt;
     margin-top: 5px;
 }
 
 time{
-    font-size: 0.75em;
+    /*font-size: 0.75em;*/
     font-weight: 500;
 }
+
+.about-post p, .about-post time{
+    display: inline;
+}
+
+.about-post {
+    font-size: 8pt;
+}
+
+.gray{
+    color: #666666;
+}
+
+.blue:visited, .blue:link {
+    color: #00aeef;
+}
+
+.blue:hover, .gray:hover{
+    color: #00d6ef;
+}
+
+/******     HEADER       ******/
 
 .logo-express { /* Express*/
     font-family: 'Sacramento', cursive;
@@ -88,9 +129,7 @@ nav {
 }
 
 nav ul {
-    border: solid;
-    border-color: #dddddd;
-    border-width: thin;
+    border: thin solid #dddddd;
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -112,7 +151,7 @@ nav li a { /*units in navbar + search button*/
     font-weight: 600;
 }
 
-nav li a:hover, a:visited, a:link {
+nav li a:hover, nav a:visited, nav a:link {
     color: #636363;
 }
 
@@ -135,9 +174,11 @@ nav li a:active {
 .slider {
     background-color: #222222;
     color: #fff;
-    font-family: 'Open Sans', sans-serif;
     font-weight: bold;
     margin-bottom: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
 }
 
 .slider h2{
@@ -149,15 +190,18 @@ nav li a:active {
 }
 
 .slider-big-article {
-    width: 55%;
-    height: 100%;
-    display: inline-block;
     position: relative;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 
 .slider-big-article img{
+    object-fit: cover;
+    position: absolute;
     width: 100%;
-    /*display: block;*/
+    height: 100%;
 }
 
 /*.slider-big-article h2 {
@@ -181,37 +225,54 @@ nav li a:active {
 .slider-big-article .article-desc{
     position: absolute;
     left: 7%;
-    bottom: 10%
+    bottom: 10%;
+    z-index: 10;
 }
 
 .slider-side-articles{
-    display: inline-block;
-    max-height: 100%;
-    position: absolute;
-    padding-left: 3px;
+    display: flex;
+    flex-direction: column;
+    margin: 5px 0px;
+    justify-content: space-between;
 }
 
-.slider-side-articles time, p {
+.slider-side-articles article{
+    margin: 5px 0;
+    /*display: flex;*/
+    /*flex-direction: row;*/
+    /*justify-content: flex-start;*/
+}
+
+.slider-side-articles time,  .slider-side-articles p {
     font-size: 7pt;
-    display: inline;
+    margin: 0;
+    /*display: inline;*/
 }
 
-.slider-side-articles  img{
-    display: inline-block;
+.slider-side-articles article img{
     float: left;
-    width: 140px;
-    height: 80px;
+    align-self: center;
+    object-fit: cover;
+    margin: 0 10px;
+    width: 165px;
+    height: 90px;
+    background-image: url("/article-img/img-placeholder-small-slider.png");
 }
 
 
-.slider-side-articles .description{
+.slider-side-articles .post-data{
     /*display: inline-block;*/
-    padding-left: 5%;
+    /*padding-left: 5%;*/
     /*position: relative;*/
+    float: left;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+
 }
 
-.description .h3 {
-    position: absolute;
+
+.post-data .h3 {
 }
 
 /***  COMMON ELEMENTS  ***/
@@ -273,6 +334,7 @@ nav li a:active {
     text-decoration: none;
     margin: 10px;
     font-size: 0.8em;
+    color: #666666;
 }
 
 .category-nav li a:hover{
@@ -298,6 +360,8 @@ nav li a:active {
     width: 100%;
 }
 
+
+
 .world-news .big-post{
     margin: 0 auto;
     flex-grow: 1;
@@ -321,6 +385,10 @@ nav li a:active {
     /*width:100%;*/
     /*height: 200px;*/
 
+}
+
+.world-news .big-post header{
+    width: 100%;
 }
 
 .big-post button{
@@ -377,7 +445,7 @@ nav li a:active {
 
 /*** Fashion ***/
 .fashion{
-    margin-bottom: 40px;
+    /*margin-bottom: 40px;*/
 }
 
 .fashion .category-header{
@@ -411,4 +479,145 @@ nav li a:active {
     position: absolute;
     bottom: 5px;
     left: 0;
+}
+/** With Aside **/
+.with-aside-blocks-container{
+    display: flex;
+
+}
+
+.left-column-blocks{
+    width: 67.5%;
+}
+
+/*** LIFESTYLE ***/
+
+.lifestyle {
+    margin-top: 40px;
+    padding-right: 20px;
+}
+
+.lifestyle .post-preview-container {
+    display: flex;
+    flex-direction: row;
+    margin-top: 40px;
+}
+
+.lifestyle .post-preview-big{
+    position: relative;
+    min-width: 220px;
+    width: 58%;
+    color: #ffffff;
+    flex-grow: 2;
+}
+
+.lifestyle .post-preview-big img{
+    position: absolute;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    background-image: url('/article-img/img-placeholder-lifestyle.png');
+}
+
+.lifestyle .post-preview-big .description{
+    position: absolute;
+    left: 10px;
+    bottom: 5px;
+    z-index: 10;
+}
+
+.lifestyle .post-preview-small{
+    flex-shrink: 2;
+
+}
+
+.lifestyle .post-preview-small img{
+    object-fit: cover;
+    width: 100px;
+    height: 100px;
+    background-image: url('/article-img/img-placeholder-small.png');
+    margin: 0 10px;
+}
+
+
+
+.lifestyle .post-preview-big .description{
+
+}
+
+.lifestyle .post-preview-small article{
+    display: flex;
+    flex-direction: row;
+}
+
+.lifestyle .post-preview-small article:nth-child(2){
+    margin: 10px 0;
+}
+
+
+/**  Resent Posts **/
+
+.recent-posts{
+    margin-top: 40px;
+    border-bottom: thin solid #dddddd;
+}
+
+.recent-posts h2{
+    margin-left: 30px;
+}
+.recent-posts article{
+    display: flex;
+    margin: 10px 0 5px 30px;
+    padding-bottom: 10px;
+    border-bottom: thin solid #dddddd;
+}
+
+.recent-posts article:last-child{
+    border: none;
+}
+
+.recent-posts img {
+    object-fit: cover;
+    width: 80px;
+    height: 80px;
+    background-image: url('/article-img/img-placeholder-small.png');
+    margin-right: 10px;
+}
+
+/*** ASIDE ***/
+
+aside {
+    border-left: thin solid #dddddd;
+}
+
+/*Categories*/
+
+.categories{
+    margin-top: 40px;
+}
+
+.categories h2, .categories .ad-img{
+    margin-left: 30px;
+}
+
+.categories-list{
+    list-style: none;
+    font-weight: 600;
+    font-size: 10pt;
+    margin: 30px 0 30px 30px;
+}
+
+
+.categories-list li{
+    margin: 10px 0;
+    border-bottom: thin solid #dddddd;
+    padding-bottom: 10px;
+}
+
+.categories-list a{
+    display: inline;
+}
+
+.categories-list .right{
+    float: right;
 }
