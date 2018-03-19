@@ -1,0 +1,25 @@
+﻿<Window x:Class="_6_GUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_6_GUI"
+        mc:Ignorable="d"
+        Title="GUI" Height="350" Width="525"
+        Closing="Window_Closing">
+    <Grid>
+        <DockPanel>
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="_Menu">
+                    <MenuItem Header="_Open"  Click="MenuItem_Open_Click"/>
+                    <MenuItem Header="_Save" Click="MenuItem_Save_Click"/>
+                    <Separator />
+                    <MenuItem Header="_Exit" Click="MenuItem_Close_Click"/>
+                </MenuItem>
+            </Menu>
+        </DockPanel>
+        <Label Name="PathLabel" Content="File Path"  Height="47" VerticalAlignment="Top" Margin="41,257,271,0"/>
+        <Label Name ="Label1" Content="Symbols:" Height="46" VerticalAlignment="Top" Margin="251,258,46,0"/>
+        <TextBox Name="TextBox" HorizontalAlignment="Left" Height="228" Margin="41,29,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="430" TextChanged="Text_TextChanged"/>
+    </Grid>
+</Window>
