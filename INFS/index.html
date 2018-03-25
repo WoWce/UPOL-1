@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Sacramento" rel="stylesheet">
+    <script src="scripts.js"></script>
 </head>
 <body>
     <header>
@@ -415,81 +416,145 @@
                     </div>
                 </section>
                 <section class="sports">
-                    <h2 class="category-head">Sports</h2>
-                    <article>
+                    <div class="category-header">
+                        <h2 class="category-head">Sports</h2>
+                        <ul class="category-nav">
+                            <li><button class="category-nav-button-left"><img src="img/left-arrow.png"></button></li>
+                            <li><button class="category-nav-button"><img src="img/right-arrow.png"></button></li>
+                        </ul>
+                        <div class="underline"></div>
+                    </div>
+                    <article class="post-preview-big">
                         <img src="x">
-                        <h3>Virgil Abloh debuts abstract furniture</h3>
-                        <time datetime="2016-12-14 12:00">December 14, 2016</time>
-                        <p>by John Doe</p>
-                        <p>8 Comments</p>
-                        <p>Cras tristique malesuada sollicitudin. Aliquam ut augue sodales, porttitor augue at,
-                            rhoncus ligula. Vivamus eget purus id magna posuere vestibulum. Vivamus eget nisl neque.
-                            Sed condimentum sodales lacus vel pretium.
-                            Etiam pretium turpis vitae fermentum eleifend. Phasellus at mi quis ante gravida
-                            imperdiet vitae eu libero. In dictum eros sapien, eget cursus eros convallis sit amet.</p>
-                        <button class="read-more-button">Read More</button>
+                        <div class="post-header">
+                            <h3>Virgil Abloh debuts abstract furniture</h3>
+                            <div class="about-post">
+                                <time datetime="2016-12-14 12:00">December 14, 2016</time>
+                                <p>by <a href="#author" class="blue">John Doe</a></p>
+                                <p><a href="#comments" class="blue">8</a> Comments</p>
+                            </div>
+                            <p>Cras tristique malesuada sollicitudin. Aliquam ut augue sodales, porttitor augue at,
+                                rhoncus ligula. Vivamus eget purus id magna posuere vestibulum. Vivamus eget nisl neque. </p>
+                            <button class="read-more-button">Read More</button>
+                        </div>
                     </article>
-                    <article>
-                        <img src="x">
-                        <h3>Masters at Work: Behind the scenes with the world's leading creatives</h3>
-                        <time datetime="2016-12-14 12:00">December 14, 2016</time>
-                        <p>by John Doe</p>
-                    </article>
-                    <article>
-                        <img src="x">
-                        <h3>Masters at Work: Behind the scenes with the world's leading creatives</h3>
-                        <time datetime="2016-12-14 12:00">December 14, 2016</time>
-                        <p>by John Doe</p>
-                    </article>
-                    <article>
-                        <img src="x">
-                        <h3>Masters at Work: Behind the scenes with the world's leading creatives</h3>
-                        <time datetime="2016-12-14 12:00">December 14, 2016</time>
-                        <p>by John Doe</p>
-                    </article>
-                    <article>
-                        <img src="x">
-                        <h3>Masters at Work: Behind the scenes with the world's leading creatives</h3>
-                        <time datetime="2016-12-14 12:00">December 14, 2016</time>
-                        <p>by John Doe</p>
-                    </article>
+                    <div class="small-post-container">
+                        <div class="column">
+                            <article>
+                                <img src="x">
+                                <div class="small-post-header">
+                                    <h3>The forbidden art that's booming in Jordan</h3>
+                                    <div class="about-post">
+                                        <time datetime="2016-12-14 12:00">December 14, 2016</time>
+                                        <p>by <a href="#author" class="blue">John Doe</a></p>
+                                    </div>
+                                </div>
+                            </article>
+                            <article>
+                                <img src="x">
+                                <div class="small-post-header">
+                                    <h3>The forbidden art that's booming in Jordan</h3>
+                                    <div class="about-post">
+                                        <time datetime="2016-12-14 12:00">December 14, 2016</time>
+                                        <p>by <a href="#author" class="blue">John Doe</a></p>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="column">
+                            <article>
+                                <img src="x">
+                                <div class="small-post-header">
+                                    <h3>The forbidden art that's booming in Jordan</h3>
+                                    <div class="about-post">
+                                        <time datetime="2016-12-14 12:00">December 14, 2016</time>
+                                        <p>by <a href="#author" class="blue">John Doe</a></p>
+                                    </div>
+                                </div>
+                            </article>
+                            <article>
+                                <img src="x">
+                                <div class="small-post-header">
+                                    <h3>The forbidden art that's booming in Jordan</h3>
+                                    <div class="about-post">
+                                        <time datetime="2016-12-14 12:00">December 14, 2016</time>
+                                        <p>by <a href="#author" class="blue">John Doe</a></p>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
                 </section>
-                <div class="two-col-block">
+                <div class="flex-row nowrap bottom-padding">
                     <section class="technology">
-                        <h2 class="category-head">Technology</h2>
-                        <img src="x">
-                        <img src="x">
+                        <div class="category-header">
+                            <h2 class="category-head">Technology</h2>
+                            <ul class="category-nav">
+                                <li><button class="category-nav-button-left"><img src="img/left-arrow.png"></button></li>
+                                <li><button class="category-nav-button"><img src="img/right-arrow.png"></button></li>
+                            </ul>
+                        </div>
+                        <div class="post-big-images">
+                            <img src="x">
+                            <img src="x">
+                        </div>
                     </section>
                     <section class="food-n-health">
-                        <h2>Food and health</h2>
-                        <article>
-                            <img src="x">
-                            <h3>Masters at Work: Behind the scenes with the world's leading creatives</h3>
-                            <time datetime="2016-12-14 12:00">December 14, 2016</time>
-                            <p>by John Doe</p>
-                        </article>
-                        <article>
-                            <img src="x">
-                            <h3>Masters at Work: Behind the scenes with the world's leading creatives</h3>
-                            <time datetime="2016-12-14 12:00">December 14, 2016</time>
-                            <p>by John Doe</p>
-                        </article>
-                        <article>
-                            <img src="x">
-                            <h3>Masters at Work: Behind the scenes with the world's leading creatives</h3>
-                            <time datetime="2016-12-14 12:00">December 14, 2016</time>
-                            <p>by John Doe</p>
-                        </article>
-                        <article>
-                            <img src="x">
-                            <h3>Masters at Work: Behind the scenes with the world's leading creatives</h3>
-                            <time datetime="2016-12-14 12:00">December 14, 2016</time>
-                            <p>by John Doe</p>
-                        </article>
+                        <div class="category-header">
+                            <h2 class="category-head">Food & Health</h2>
+                            <ul class="category-nav">
+                                <li><button class="category-nav-button-left"><img src="img/left-arrow.png"></button></li>
+                                <li><button class="category-nav-button"><img src="img/right-arrow.png"></button></li>
+                            </ul>
+                        </div>
+                        <div class="small-post-container">
+                            <article>
+                                <img src="x">
+                                <div class="small-post-header">
+                                    <h3>The forbidden art that's booming in Jordan</h3>
+                                    <div class="about-post">
+                                        <time datetime="2016-12-14 12:00">December 14, 2016</time>
+                                        <p>by <a href="#author" class="blue">John Doe</a></p>
+                                    </div>
+                                </div>
+                            </article>
+                            <article>
+                                <img src="x">
+                                <div class="small-post-header">
+                                    <h3>The forbidden art that's booming in Jordan</h3>
+                                    <div class="about-post">
+                                        <time datetime="2016-12-14 12:00">December 14, 2016</time>
+                                        <p>by <a href="#author" class="blue">John Doe</a></p>
+                                    </div>
+                                </div>
+                            </article>
+                            <article>
+                                <img src="x">
+                                <div class="small-post-header">
+                                    <h3>The forbidden art that's booming in Jordan</h3>
+                                    <div class="about-post">
+                                        <time datetime="2016-12-14 12:00">December 14, 2016</time>
+                                        <p>by <a href="#author" class="blue">John Doe</a></p>
+                                    </div>
+                                </div>
+                            </article>
+                            <article>
+                                <img src="x">
+                                <div class="small-post-header">
+                                    <h3>The forbidden art that's booming in Jordan</h3>
+                                    <div class="about-post">
+                                        <time datetime="2016-12-14 12:00">December 14, 2016</time>
+                                        <p>by <a href="#author" class="blue">John Doe</a></p>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
                     </section>
                 </div>
             </div>
-            <aside>
+
+            
+            <aside class="bottom-padding">
                 <section class="recent-posts">
                     <h2 class="category-head">Recent Posts</h2>
                     <article>
@@ -554,7 +619,7 @@
                         <li><a class="gray" href="#url">Tech</a><a href="#url" class="gray right">19 Posts</a></li>
                         <li><a class="gray" href="#url">Health</a><a href="#url" class="gray right">9 Posts</a></li>
                     </ul>
-                    <img class="ad-img" src="article-img/ad-placeholder.png">
+                    <div class="ad-container"><img class="ad-img" src="article-img/ad-placeholder.png"></div>
                 </section>
             </aside>
         </div>
@@ -562,47 +627,127 @@
 
 
     <footer>
-        <h1>Express Blogs and Magazines</h1>
-        <section>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-            ut aliquip ex ea commodo consequat.
-        </section>
-        <section class="footer-socials">
+        <div class="footer-content">
+            <div class="flex-row nowrap">
+                <div class="column">
+                    <h1 class="footer-logo"><div class="logo-express">Express</div><div class="logo">Blogs & Magazines</div></h1>
+                    <div class="clear"></div>
 
-        </section>
-        <section>
-            <h1>Most viewed</h1>
-            <article>
-                <img src="x">
-                <h3>Spider species named for Harry Potter hat</h3>
-                <time datetime="2016-12-14 12:00">December 14, 2016</time>
-                <p>by John Doe</p>
-            </article>
-            <article>
-                <img src="x">
-                <h3>Spider species named for Harry Potter hat</h3>
-                <time datetime="2016-12-14 12:00">December 14, 2016</time>
-                <p>by John Doe</p>
-            </article>
-            <article>
-                <img src="x">
-                <h3>Spider species named for Harry Potter hat</h3>
-                <time datetime="2016-12-14 12:00">December 14, 2016</time>
-                <p>by John Doe</p>
-            </article>
-        </section>
-        <section>
-            <h1>Twitter</h1>
-            <article>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt tellus lacus.</p>
-                <time datetime="2016-12-14 12:00">about 2 weeks ago</time>
-            </article>
-        </section>
-        <p>
-            © Copyright Gomalthemes 2017, All Rights Reserved
-        </p>
+                    <p class="white">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                        ut aliquip ex ea commodo consequat.
+                    </p>
+
+                    <div class="social-circles">
+                        <ul class="circle-row">
+                            <li class="circle">
+                                <a href="https://facebook.com">
+                                    <img src="./img/facebook-letter-logo.png" />
+                                </a>
+                            </li>
+                            <li class="circle">
+                                <a href="https://twitter.com">
+                                    <img src="./img/twitter-logo-silhouette.png" />
+                                </a>
+                            </li>
+                            <li class="circle">
+                                <a href="https://youtube.com">
+                                    <img src="./img/youtube-logo.png" />
+                                </a>
+                            </li>
+                            <li class="circle">
+                                <a href="https://vimeo.com">
+                                    <img src="./img/vimeo-logo.png" />
+                                </a>
+                            </li>
+                            <li class="circle">
+                                <a href="https://pinterest.com">
+                                    <img src="./img/pinterest.png" />
+                                </a>
+                            </li>
+                        </ul>
+
+                        <ul class="circle-row">
+                            <li class="circle">
+                                <a href="https://instagram.com">
+                                    <img src="./img/instagram-logo.png" />
+                                </a>
+                            </li>
+                            <li class="circle">
+                                <a href="https://behance.net">
+                                    <img src="./img/behance-logo.png" />
+                                </a>
+                            </li>
+                            <li class="circle">
+                                <a href="https://dribbble.com">
+                                    <img src="./img/dribbble-logo.png" />
+                                </a>
+                            </li>
+                            <li class="circle">
+                                <a href="https://skype.com">
+                                    <img src="./img/skype-logo.png" />
+                                </a>
+                            </li>
+                            <li class="circle">
+                                <a href="https://Soundcloud.com">
+                                    <img src="./img/soundcloud-logo.png"/>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+                <section class="most-viewed">
+                    <h2 class="category-head">Most viewed</h2>
+                    <div class="small-post-container">
+                        <article>
+                            <img src="x">
+                            <div class="small-post-header">
+                                <h3>Spider species named for Harry Potter hat</h3>
+                                <div class="about-post">
+                                    <time datetime="2016-12-14 12:00">December 14, 2016</time>
+                                    <p>by <a href="#author" class="blue">John Doe</a></p>
+                                </div>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="x">
+                            <div class="small-post-header">
+                                <h3>Spider species named for Harry Potter hat</h3>
+                                <div class="about-post">
+                                    <time datetime="2016-12-14 12:00">December 14, 2016</time>
+                                    <p>by <a href="#author" class="blue">John Doe</a></p>
+                                </div>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="x">
+                            <div class="small-post-header">
+                                <h3>Spider species named for Harry Potter hat</h3>
+                                <div class="about-post">
+                                    <time datetime="2016-12-14 12:00">December 14, 2016</time>
+                                    <p>by <a href="#author" class="blue">John Doe</a></p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+                <section class="twitter">
+                    <h2 class="category-head">Twitter</h2>
+                    <article>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt tellus lacus.</p>
+                        <time datetime="2016-12-14 12:00">about 2 weeks ago</time>
+                    </article>
+                </section>
+            </div>
+            <hr>
+            <p class="copyright">
+                © Copyright Gomalthemes 2017, All Rights Reserved
+            </p>
+        </div>
     </footer>
+    <button onclick="scrollToTop()" id="scroll-to-top" ><img src="img/arrow-up.png"></button>
 </body>
 </html>
