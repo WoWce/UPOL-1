@@ -36,6 +36,8 @@ namespace _7_WPF_Canvas
         private bool polygonActive = false;
         private bool ellipse = false;
 
+        private double CanvasTop, CanvasLeft;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -106,10 +108,35 @@ namespace _7_WPF_Canvas
                     currentLine.Y2 = e.GetPosition(this).Y;
                 } else if (rectangle)
                 {
-                    currentRect.Width = Math.Abs(e.GetPosition(this).X - currentPoint.X);
+                    if((e.GetPosition(this).X - currentPoint.X) < 0)
+                    {
+                        CanvasLeft = e.GetPosition(this).X;
+                        currentRect.SetValue(Canvas.LeftProperty, CanvasLeft);
+                    }
+                    
+                    if((e.GetPosition(this).Y - currentPoint.Y) < 0)
+                    {
+                        CanvasTop = e.GetPosition(this).Y;
+                        currentRect.SetValue(Canvas.TopProperty, CanvasTop);
+                    }
+
                     currentRect.Height = Math.Abs(e.GetPosition(this).Y - currentPoint.Y);
+                    currentRect.Width = Math.Abs(e.GetPosition(this).X - currentPoint.X);
+                    
                 } else if (ellipse)
                 {
+
+                    if ((e.GetPosition(this).X - currentPoint.X) < 0)
+                    {
+                        CanvasLeft = e.GetPosition(this).X;
+                        currentCircle.SetValue(Canvas.LeftProperty, CanvasLeft);
+                    }
+
+                    /*if ((e.GetPosition(this).Y - currentPoint.Y) < 0)
+                    {
+                        CanvasTop = e.GetPosition(this).Y;
+                        currentCircle.SetValue(Canvas.TopProperty, CanvasTop);
+                    }*/
                     currentCircle.Width = Math.Abs(e.GetPosition(this).X - currentPoint.X);
                     currentCircle.Height = Math.Abs(e.GetPosition(this).X - currentPoint.X);
                 }
