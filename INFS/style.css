@@ -12,6 +12,13 @@ header, main, .footer-content{
     margin: 0 auto;
 }
 
+@media only screen and (max-width: 1080px) {
+    header, main, .footer-content{
+        width: 100%;
+        margin: 0 auto;
+    }
+}
+
 footer{
     color: #ffffff;
     background-color: #222222;
@@ -100,7 +107,6 @@ time{
 .logo{ /* Blogs and Magazines*/
     font-size: 0.5em;
     color: #00aeef;
-    font-family: 'Open Sans', sans-serif;
     font-weight: 900;
     letter-spacing: 1px;
     margin-left: -145px;
@@ -130,7 +136,6 @@ ul { /*additional navbar default padding (left)*/
 .additional-navbar a:link, .additional-navbar a:visited {
     color: #666666;
     text-decoration: none;
-    font-family: 'Open Sans', sans-serif;
     font-size: small;
 }
 
@@ -191,9 +196,17 @@ nav li a:active {
 .search { /*search button in main navigation*/
     float: right;
     display: block;
-    padding: 12px 18px;
-    background-color: #ffffff;
+    padding: 14px 18px;
+    background: linear-gradient(#ffffff, #dddddd);
     border: none;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.search:active{
+    background: linear-gradient(#dddddd, #ffffff);
 }
 
 /**************          MAIN            ***************/
@@ -225,29 +238,16 @@ nav li a:active {
     justify-content: flex-end;
 }
 
+.slider-big-article h3{
+    font-size: 15pt;
+}
+
 .slider-big-article img{
     object-fit: cover;
     width: 100%;
     height: 100%;
 }
 
-/*.slider-big-article h2 {
-    position: absolute;
-    bottom: 10%;
-    left: 5%;
-}
-
-.slider-big-article p{
-    position: absolute;
-    bottom: 8%;
-    left: 5%;
-}
-
-.slider-big-article time{
-    position: absolute;
-    bottom: 8%;
-    left: 5%;
-}*/
 
 .slider-big-article .article-desc{
     position: absolute;
@@ -262,6 +262,10 @@ nav li a:active {
     margin: 5px 0px;
     justify-content: space-between;
     flex-grow: 1;
+}
+
+.slider-side-articles .post-section{
+    display: none;
 }
 
 .slider-side-articles article{
@@ -301,6 +305,12 @@ nav li a:active {
 
 
 .post-data .h3 {
+}
+
+@media only screen and (max-width: 1080px){
+    div.slider{
+        display: none;
+    }
 }
 
 /***  COMMON ELEMENTS  ***/
