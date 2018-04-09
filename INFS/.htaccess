@@ -1,0 +1,2 @@
+RewriteEngine On    # Turn on the rewriting engine
+RewriteRule    ^([a-z]+)$    index.php?controller=pages&action=$1  [NC,L]
