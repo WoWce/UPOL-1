@@ -1,0 +1,176 @@
+* {
+    box-sizing: border-box;
+}
+
+button:focus {outline:0;}
+
+body {
+    margin: 0;
+    font-family: Arial;
+}
+
+.blur {
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);
+}
+
+.header {
+    text-align: center;
+    padding: 32px;
+}
+
+.row {
+    margin: auto;
+}
+
+/* Create four equal columns that sits next to each other */
+.column {
+    /*-ms-flex: 25%; !* IE10 *!*/
+    /*flex: 25%;*/
+    /*max-width: 25%;*/
+    /*padding: 0 4px;*/
+    display: flex;
+    flex-wrap: wrap;
+    /*align-items: flex-start;*/
+    flex-direction: row;
+    /*max-height: 100vh;*/
+}
+
+
+
+.container {
+    flex-grow: 1;
+    margin: 5px;
+    height: 200px;
+}
+
+.column img {
+
+    height: 200px;
+    object-fit: cover;
+    max-width: 100%;
+    min-width: 100%;
+    vertical-align: bottom;
+}
+
+.column div:hover {
+    animation: fadein 1s;
+    opacity: 1;
+    cursor: pointer;
+}
+
+.column .container img{
+    animation: transition 1s;
+    max-width: 100%;
+}
+
+.column .container:hover img {
+    transform: scale(1.3);
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media (max-width: 1000px) and (min-width: 900px) {
+    .container:nth-last-child(5),
+    .container:nth-last-child(4),
+    .container:nth-last-child(3),
+    .container:nth-last-child(2),
+    .container:nth-last-child(1){
+        flex-grow: 0;
+    }
+}
+@media (max-width: 1100px) and (min-width: 1000px) {
+    .container:nth-last-child(7),
+    .container:nth-last-child(6),
+    .container:nth-last-child(5),
+    .container:nth-last-child(4),
+    .container:nth-last-child(3),
+    .container:nth-last-child(2),
+    .container:nth-last-child(1){
+        flex-grow: 0;
+    }
+}
+
+#overlay{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    background-color: #000;
+    /*opacity: 0.7;*/
+    /*filter: alpha(opacity = 70) !important;*/
+    display: none;
+    z-index: 100;
+
+}
+
+#overlayContent{
+    position: fixed;
+    /*center element*/
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    max-width: 70%;
+    display: none;
+    overflow: hidden;
+    z-index: 102;
+    margin: auto;
+}
+
+#imgBig {
+    width: auto;
+    max-width: 100%;
+    max-height: 600px;
+    height: auto;
+}
+
+.left img, .right img {
+    height: 50px;
+    width: 50px;
+    z-index: 110;
+}
+
+.gallery-button {
+    background-color: transparent;
+    border: none;
+    height: 100vw;
+}
+
+
+.left{
+    position: fixed;
+    width: 25%;
+
+    top: 50%;
+    transform: translateY(-50%);
+
+    left: 0;
+    display: none;
+    z-index: 101;
+
+}
+
+.left:hover {
+    background: linear-gradient(to left, rgba(0, 174, 239, 0), rgba(0, 174, 239, 0.3));
+}
+
+.right {
+    position: fixed;
+    width: 25%;
+
+    top: 50%;
+    transform: translateY(-50%);
+
+    right: 0;
+    display: none;
+    z-index: 101;
+}
+
+.right:hover {
+    background: linear-gradient(to right, rgba(0, 174, 239, 0), rgba(0, 174, 239, 0.3));
+}
