@@ -4,4 +4,6 @@ Cviceni 3: Pocet platnych FZ v relaci(programovani)
 Cviceni 4: Dokazovani FZ pomoci logiky(na tabuli)  
 Cviceni 5: Nic (bod za dochazku)    
 Cviceni 6: Neredundantni baze, uzaverove operatry(na tabuli)   
-Cviceni 7: Posledni, za dochazku
+Cviceni 7: Posledni, za dochazku  
+  
+Zkouska: 10 otazek (a-d)
