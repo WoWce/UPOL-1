@@ -1,9 +1,10 @@
 # UPOL
 
-School projects and exercises from Palacky University, Olomouc  
+School projects and exercises from Palacky University, Olomouc     
 
-### Details
-Used languages: Scheme, Common Lisp, C, C++, C#, Java
-Web: html, css, php, bootstrap
+### Details    
+
+Used languages: Scheme, Common Lisp, C, C++, C#, Java    
+Web: html, css, php, bootstrap    
 
 
