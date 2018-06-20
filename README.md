@@ -9,4 +9,4 @@ Web: html, css, php, bootstrap
 
 #### Contact    
 
-[mailto](mailto:michael.klunko@gmail.com)
+[michael.klunko@gmail.com](mailto:michael.klunko@gmail.com)
